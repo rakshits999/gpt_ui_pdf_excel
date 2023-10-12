@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+button:focus, select:focus{
+    outline: none !important;
+}
+button,
+select {
+    padding: .8rem;
+    border: none;
+    border-radius: .25rem;
+    background-color: #333;
+    color: #fff;
+}
+
+.settings label {
+    font-weight: 300;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.chat_outer {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+    min-width: 260px;
+    background: #202123;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: .75rem;
+    color: #fff;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.chat-box {
+    overflow-y: scroll;
+    max-height: 500px; 
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #000;
+}
+
+.input-parent {
+    padding: 1rem;
+}
+
+.input-holder {
+    display: flex;
+    justify-items: center;
+    box-shadow: 0 0 10px #0000001a;
+    border: rgba(0, 0, 0, .1) 1px solid;
+    border-radius: .375rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.logo {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.logo svg {
+    fill: #fff;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    margin-bottom: -8px;
+}
+
+.github a {
+    color: #999;
+    font-size: .8rem;
+    font-weight: 400;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
+
+.input-holder svg {
+    margin-top: 3px;
+    width: 20px;
+    height: auto;
+}
+
+.input-holder button {
+    border: 0;
+    background: #eee;
+    margin: .5rem;
+    border-radius: .5rem;
+    padding: .3rem .5rem;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.input-holder #question {
+    padding: .9rem 1rem;
+    border: none;
+    border-radius: .375rem;
+    flex: 1;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.5rem;
+    resize: none;
+    height: 53px;
+    width: 100%;
+}
+
+#question_form {
+    width: 100%;
+    flex-wrap: nowrap;
+    display: flex;
+
+}
+
+.input-holder .speaker button svg {
+    fill: #000;
+    stroke: #000;
+    height: 30px;
+}
+
+.input-holder #question:focus {
+    outline: none;
+}
+div.message.generator, div.message.system {
+background: rgba(247,247,248);
+}
+div.message {
+padding: 1rem;
+border-bottom: rgba(0,0,0,.1);
+flex-direction: row;
+width: 100%;
+display: flex;
+}
+div.message.generator div.avatar, div.message.system div.avatar {
+background: #74a89b;
+}
+div.avatar {
+background: rgb(194,142,210);
+padding: 5px;
+color: #fff;
+fill: #fff;
+border-radius: 2px;
+width: 24px;
+height: 24px;
+}
+
+div.message-body {
+    padding-left: 1rem;
+    width: 100%;
+    font-size: 16px;
+    font-family: system-ui;
+}
+.cell-output {
+white-space: pre-wrap;
+color: white;
+}
+
+.message.generator.bot-message {
+    background-color: black;
+}

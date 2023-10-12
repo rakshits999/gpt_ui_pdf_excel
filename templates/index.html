@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PDF Question Answering</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,600&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="chat_outer">
+        <div class="sidebar">
+            <div class="logo"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false"
+                    aria-hidden="true" viewBox="0 0 24 24" data-testid="AssistantIcon">
+                    <path
+                        d="M19 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h4l3 3 3-3h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-5.12 10.88L12 17l-1.88-4.12L6 11l4.12-1.88L12 5l1.88 4.12L18 11l-4.12 1.88z">
+                    </path>
+                </svg> GPT-Code UI<div class="github"><a href="https://github.com/ricklamers/gpt-code-ui">Open Source -
+                        v0.42.40</a></div>
+            </div>
+            <div class="settings">
+                <label for="file_type">Select type:</label>
+                <select id="file_type" name="file_type">
+                    <option value="pdf">PDF</option>
+                    <option value="csv">CSV</option>
+                    <option value="GPT-3.5">GPT-3.5</option>
+                    <option value="GPT-4">GPT-4</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="main chat_side">
+            <div class="chat-container chat-messages">
+                <div class="chat-box" id="chat-box">
+                    <!-- Initially, the chat box is empty -->
+                </div>
+            </div>
+
+            <div class="input-parent">
+                <div class="input-holder">
+
+                    <form action="/" method="POST" enctype="multipart/form-data">
+                        <label for="file" class="custom-file-upload">
+                            <input type="file" id="file" name="file" style="display: none;" onchange="uploadFile(this)">
+                            <button type="button" onclick="document.getElementById('file').click()"><svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="FileUploadIcon"><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"></path></svg></button>
+                        </label>
+                        <button type="submit" style="display: none;" id="uploadButton"></button>
+                    </form>
+
+                    <div class="speaker">
+                        <button onclick="runSpeechRecog()" style="border: transparent;padding: 0 0.5rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true" class="w-9 h-9 p-[6px] text-primary">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <form id="question_form" action="" method="POST" enctype="multipart/form-data"
+                        onsubmit="submitForm()">
+                        <input type="text" name="question" id="question" placeholder="Type your question">
+                        <button type="submit" id="submit_data"><svg
+                                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false"
+                                aria-hidden="true" viewBox="0 0 24 24" data-testid="SendIcon">
+                                <path d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"></path>
+                            </svg></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+
+</html>
